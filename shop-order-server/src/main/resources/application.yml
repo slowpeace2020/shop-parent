@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///shop-order?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
