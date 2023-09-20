@@ -1,9 +1,5 @@
 server:
   port: 8091
-  tomcat:
-    threads:
-      max: 10
-
 spring:
   application:
     name: order-service
@@ -11,6 +7,11 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+    sentinel:
+      transport:
+        port: 9999 #the port communicate with command console, select an unused port
+        dashboard: localhost:8080 # sentinel dashboard service ip
+      web-context-unify: false
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///shop-order?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
@@ -22,6 +23,7 @@ spring:
         hbm2ddl:
           auto: update
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
 product-service:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
