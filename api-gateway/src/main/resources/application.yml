@@ -8,10 +8,14 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+    sentinel:
+      transport:
+        port: 9999
+        dashboard: localhost:8080
     gateway:
       discovery:
         locator:
-          enabled: true #gateway find microservice in nacos
+          enabled: true
       routes:
         - id: product_route
           uri: lb://product-service
@@ -26,3 +30,4 @@ spring:
             - Path=/order-serv/**
           filters:
             - StripPrefix=1
+            - Time=true
