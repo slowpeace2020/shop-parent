@@ -21,6 +21,7 @@ public class GatewayConfiguration {
             @Override
             public Mono<ServerResponse> handleRequest(ServerWebExchange
                                                               serverWebExchange, Throwable throwable) {
+                //sentinel异常处理返回格式
                 Map map = new HashMap<>();
                 map.put("code", 0);
                 map.put("message", "接口被限流了");
