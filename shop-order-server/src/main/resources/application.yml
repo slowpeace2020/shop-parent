@@ -23,6 +23,12 @@ spring:
         hbm2ddl:
           auto: update
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  zipkin:
+    base-url: http://127.0.0.1:9411/ #zipkin server请求地址
+    discovery-client-enabled: false    #让nacos把它当成URL,而非服务名
+  sleuth:
+    sampler:
+      probability: 1.0 #采样比
 
 product-service:
   ribbon:

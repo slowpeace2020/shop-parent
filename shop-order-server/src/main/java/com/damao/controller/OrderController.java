@@ -16,6 +16,7 @@ public class OrderController {
 
     @RequestMapping("/save")
     public Order order(Long pid,Long uid){
+        log.info("OrderController调用service方法");
         return orderService.createOrder(pid,uid);
     }
 }
